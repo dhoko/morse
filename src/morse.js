@@ -63,7 +63,7 @@ var morse = (function() {
 			if ( alpha[ str.charAt(i) ] )
 				ret += " " + alpha[ str.charAt(i) ];
 			else if ( !isSilent )
-				new Error("morse.encode: Can't handle " + str.charAt(i));
+				throw new Error("morse.encode: Can't handle " + str.charAt(i));
 		}
 
 		return ret.slice(1);
@@ -79,7 +79,7 @@ var morse = (function() {
 			if ( morse[ split[i] ] )
 				ret += morse[ split[i] ];
 			else if ( !isSilent )
-				new Error("morse.decode: Can't handle " + split[i]);
+				throw new Error("morse.decode: Can't handle " + split[i]);
 		}
 
 		return ret;
@@ -88,8 +88,8 @@ var morse = (function() {
 	return {
 		encode: encode,
 		decode: decode,
-		silent: function() {
-			isSilent = !!arguments.length;
+		silent: function( s ) {
+			isSilent = s !== false;
 		}
 	};
 
