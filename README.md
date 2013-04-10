@@ -8,5 +8,5 @@ Easy JavaScript morse encoder and decoder.
         encoded = morse.encode(str),
         decoded = morse.decode(encoded);
 
-    console.log(encoded);
-    console.log(decoded);
+    console.log(encoded); // ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
+    console.log(decoded); // "HELLO WORLD"
